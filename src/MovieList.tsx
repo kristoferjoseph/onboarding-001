@@ -1,5 +1,5 @@
+import {Suspense} from 'react'
 import Movie from './Movie'
-
 import {useDocuments} from '@sanity/sdk-react'
 
 export default function TestComponent() {
@@ -13,7 +13,11 @@ export default function TestComponent() {
   return (
     <div className="movies-container">
       <div className="movie-grid">
-        {data?.map((movie) => <Movie key={movie._id} handle={movie} />)}
+        {data?.map((movie) => (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Movie key={movie._id} handle={movie} />
+          </Suspense>
+        ))}
       </div>
     </div>
   )
