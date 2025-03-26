@@ -2,7 +2,7 @@ import {Suspense} from 'react'
 import Movie from './Movie'
 import {useDocuments} from '@sanity/sdk-react'
 
-export default function TestComponent() {
+export default function MovieList() {
   const {data} = useDocuments({
     filter: '_type == "movie"',
     // search: 'Wall-E',
