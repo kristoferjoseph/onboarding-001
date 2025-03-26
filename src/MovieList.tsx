@@ -14,8 +14,8 @@ export default function MovieList() {
     <div className="movies-container">
       <div className="movie-grid">
         {data?.map((movie) => (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Movie key={movie._id} handle={movie} />
+          <Suspense key={movie._id} fallback={<div>Loading...</div>}>
+            <Movie handle={movie} />
           </Suspense>
         ))}
       </div>
